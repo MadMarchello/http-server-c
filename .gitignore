@@ -1,0 +1,8 @@
+*.py
+
+# C build outputs
+server
+*.o
+*.out
+*.exe
+*.dSYM/
