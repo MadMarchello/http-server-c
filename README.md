@@ -34,3 +34,14 @@ curl -i -X POST -H "Authorization: Basic YWRtaW46cGFzc3dvcmQ=" \
 - `Ctrl+C` в окне сервера, или
 - из другого окна: `pkill -f dev_projects/rest-api-c/server`
 
+## Используемые библиотеки (все стандартные, без сторонних)
+- `arpa/inet.h` — адреса и преобразование порядков байт.
+- `errno.h` — коды ошибок системных вызовов.
+- `netinet/in.h` — структуры/константы для IPv4 сокетов.
+- `stdbool.h` — булевый тип.
+- `stdio.h` — ввод/вывод (printf/snprintf).
+- `stdlib.h` — утилиты (exit, atoi).
+- `string.h` — строки/память (strlen, strncpy, strchr, strstr, strncmp, strcasecmp, strtok_r).
+- `sys/socket.h` — сокеты (socket, bind, listen, accept, send, recv, setsockopt).
+- `unistd.h` — POSIX функции (close).
+
