@@ -1,0 +1,82 @@
+{
+  "info": {
+    "name": "rest-api-c manual tests",
+    "_postman_id": "b7b5a3c4-0000-0000-0000-000000000001",
+    "description": "Коллекция для ручного тестирования HTTP-сервера (Basic auth admin:password).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Unauthorized GET (expect 401)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health"
+      },
+      "response": []
+    },
+    {
+      "name": "Authorized GET",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic YWRtaW46cGFzc3dvcmQ=",
+            "type": "text"
+          }
+        ],
+        "url": "{{base_url}}/test"
+      },
+      "response": []
+    },
+    {
+      "name": "Authorized POST with body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic YWRtaW46cGFzc3dvcmQ=",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"hello\": \"world\" }"
+        },
+        "url": "{{base_url}}/echo"
+      },
+      "response": []
+    },
+    {
+      "name": "Unsupported method (expect 405)",
+      "request": {
+        "method": "HEAD",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic YWRtaW46cGFzc3dvcmQ=",
+            "type": "text"
+          }
+        ],
+        "url": "{{base_url}}/any"
+      },
+      "response": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8080",
+      "type": "default"
+    }
+  ]
+}
+
